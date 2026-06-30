@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float rotationStrength = 100.0f;
     
     // Declaration of Rigid Body 
-    public Rigidbody myRigidbody;
+     Rigidbody myRigidbody;
 
     private void Start()
     {

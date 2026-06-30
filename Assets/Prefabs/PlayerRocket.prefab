@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7165447965615513709}
   - component: {fileID: 169927904122664311}
   - component: {fileID: 3421094932992474045}
+  - component: {fileID: 7512204502071490055}
+  - component: {fileID: 6455941611329396979}
   m_Layer: 0
   m_Name: PlayerRocket
   m_TagString: Untagged
@@ -43,8 +45,8 @@ Rigidbody:
   m_GameObject: {fileID: 8805628483165839953}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 2
+  m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -59,7 +61,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!65 &3421094932992474045
 BoxCollider:
@@ -82,6 +84,83 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.54, y: 2.01, z: 0.7}
   m_Center: {x: 0.11, y: 0.99, z: 0.03522709}
+--- !u!114 &7512204502071490055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805628483165839953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1dba57868d11484d8c99dab0a8b068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
+  thrustMovement:
+    m_Name: Thrust Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4a5c498a-879b-4c2a-8149-5a6f86c488ff
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1f61c923-84b4-4022-aeae-3f168a267422
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Thrust Movement
+      m_Flags: 0
+    m_Flags: 0
+  rotationMovement:
+    m_Name: Rotation Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4ecdc47b-626e-4911-bc9d-3f78446cfb4c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: b740bc66-a855-4be3-8f14-9de5fe91139f
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotation Movement
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 77494595-a2e5-462d-97df-5da857734a2a
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotation Movement
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 2e730b0b-f51d-4858-bfdc-d963f9a5df37
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotation Movement
+      m_Flags: 8
+    m_Flags: 0
+  thrustStrength: 1000
+  rotationStrength: 100
+  myRigidbody: {fileID: 0}
+--- !u!114 &6455941611329396979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805628483165839953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d220b6e229dcd0742b75378ef6dddb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collision
 --- !u!1001 &4085672265512173695
 PrefabInstance:
   m_ObjectHideFlags: 0
