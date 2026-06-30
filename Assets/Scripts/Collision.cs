@@ -5,8 +5,21 @@ using UnityEngine.SceneManagement;
 public class Collision : MonoBehaviour
 {
     [SerializeField] private float delayTime = 2.0f;
+    [SerializeField] private AudioClip crashSound;
+    [SerializeField] private AudioClip successSound;
+    
+    private bool isControllable = true;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+    
     private void OnCollisionEnter(UnityEngine.Collision other)
     {
+        // if rocket is not in control then return 
+        if(!isControllable) { return;}
         // To make the working of objects by using tags 
         switch (other.gameObject.tag)
         {
@@ -16,11 +29,13 @@ public class Collision : MonoBehaviour
 
             case "Finish":
                 Debug.Log("You have hit finish");
+               
                 StartLevelSequence();
                 break;
 
             default:
                 Debug.Log("You don't hit anything");
+                
                 CrashLevelSequence();
                 break;
 
@@ -28,13 +43,23 @@ public class Collision : MonoBehaviour
     }
 
     void StartLevelSequence()
-    {
+    { 
+        // Disable all the controls
+        isControllable = false;
+        audioSource.Stop();
+        audioSource.PlayOneShot(successSound);
+        GetComponent<Movement>().enabled = false;
         // To add delay in loading the next level
         Invoke("LoadNextLevel", delayTime);
     }
 
     void CrashLevelSequence()
     {
+        // Disable all the controls
+        isControllable = false;
+        audioSource.Stop();
+        audioSource.PlayOneShot(crashSound);
+        GetComponent<Movement>().enabled = false;
         // To add delay in restarting the level
         Invoke("RestartLevel",  delayTime);
     }
