@@ -71,7 +71,7 @@ public class Movement : MonoBehaviour
              LeftRotation();
          }
     }
-
+    
     void RightRotation()
     {
         ApplyRotation(rotationStrength);

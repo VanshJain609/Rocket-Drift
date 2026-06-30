@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Collision : MonoBehaviour
 {
+    
     [SerializeField] private float delayTime = 2.0f;
     [SerializeField] private AudioClip crashSound;
     [SerializeField] private AudioClip successSound;
