@@ -5,6 +5,7 @@ public class Collision : MonoBehaviour
 {
     private void OnCollisionEnter(UnityEngine.Collision other)
     {
+        // To make the working of objects by using tags 
         switch(other.gameObject.tag)
         {
             case "Friendly" :
