@@ -48,6 +48,7 @@ public class Collision : MonoBehaviour
         // Disable all the controls
         isControllable = false;
         audioSource.Stop();
+        
         audioSource.PlayOneShot(successSound);
         GetComponent<Movement>().enabled = false;
         // To add delay in loading the next level
@@ -59,6 +60,7 @@ public class Collision : MonoBehaviour
         // Disable all the controls
         isControllable = false;
         audioSource.Stop();
+       
         audioSource.PlayOneShot(crashSound);
         GetComponent<Movement>().enabled = false;
         // To add delay in restarting the level
